@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API RESTful</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const token = localStorage.getItem('token');
+            const rol = localStorage.getItem('rol');
+
+            // Verificar si el usuario está logueado
+            if (!token) {
+                alert('Por favor, inicie sesión.');
+                window.location.href = 'login.html';
+            }
+
+            // Ocultar el enlace de Usuario si el rol no es ADMIN
+            if (rol !== 'Admin') {
+                const usuarioLink = document.querySelector('a[href="usuario.html"]');
+                if (usuarioLink) {
+                    usuarioLink.style.display = 'none';
+                }
+            }
+        });
+    </script>
+</head>
+<body>
+    <h1>Usuario</h1>
+    <a href="usuario.html">Usuario</a>
+
+    <h1>Materia</h1>
+    <a href="materia.html">Materia</a>
+
+    <h1>Login</h1>
+    <a href="login.html">Login</a>
+</body>
+</html>
